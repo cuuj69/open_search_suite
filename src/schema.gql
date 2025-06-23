@@ -1,0 +1,78 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateSearchDocumentInput {
+  category: String!
+  content: String!
+  price: Float
+  rating: Float
+  tags: [String!]!
+  title: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createSearchDocument(input: CreateSearchDocumentInput!): SearchDocumentResponse!
+  deleteSearchDocument(id: String!): SearchDocumentResponse!
+  updateSearchDocument(id: String!, input: UpdateSearchDocumentInput!): SearchDocumentResponse!
+}
+
+type Query {
+  getCategories: [String!]!
+  getSearchDocument(id: String!): SearchDocument
+  getTags: [String!]!
+  healthCheck: Boolean!
+  searchDocuments(input: SearchQueryInput!): SearchResult!
+}
+
+type SearchDocument {
+  category: String!
+  content: String!
+  createdAt: DateTime!
+  excerpt: String!
+  formattedPrice: String!
+  formattedRating: String!
+  id: String!
+  price: Float
+  rating: Float
+  tags: [String!]!
+  title: String!
+  updatedAt: DateTime!
+}
+
+type SearchDocumentResponse {
+  document: SearchDocument
+  message: String
+  success: Boolean!
+}
+
+input SearchQueryInput {
+  category: String
+  from: Int
+  maxPrice: Float
+  minPrice: Float
+  minRating: Float
+  query: String!
+  size: Int
+  tags: [String!]
+}
+
+type SearchResult {
+  documents: [SearchDocument!]!
+  took: Float!
+  total: Float!
+}
+
+input UpdateSearchDocumentInput {
+  category: String
+  content: String
+  price: Float
+  rating: Float
+  tags: [String!]
+  title: String
+}
