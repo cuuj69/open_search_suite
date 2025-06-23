@@ -5,7 +5,7 @@ const client = new Client({
   node: 'http://localhost:9200',
   auth: {
     username: 'admin',
-    password: '@forum500A'
+    password: '1234'
   }
 });
 
