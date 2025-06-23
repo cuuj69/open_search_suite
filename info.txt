@@ -1,0 +1,6 @@
+index mapping: we need to create an index with the proper mapping for item type
+
+search functionality: search and filter
+recommendation system: setting up recommendation system based on user interaction
+
+
